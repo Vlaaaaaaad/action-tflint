@@ -22,6 +22,7 @@ for RULESET in ${INPUT_TFLINT_RULESETS//,/ /}; do
   mkdir -p ${TFLINT_PLUGIN_DIR}
   curl -sfL "$(curl -sfL ${REPOSITORY}/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" -o ${PLUGIN}.zip && unzip ${PLUGIN}.zip -d "${TFLINT_PLUGIN_DIR}" && rm ${PLUGIN}.zip
   echo '::endgroup::'
+  tflint -v
 done
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
