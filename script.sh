@@ -41,5 +41,3 @@ echo ::set-output name=reviewdog-return-code::"${reviewdog_return}"
 echo '::endgroup::'
 
 exit $exit_code
-
-"${REPOSITORY}"/releases/latest/download/"${PLUGIN}"_linux_amd64.zip
