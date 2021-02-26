@@ -14,13 +14,13 @@ curl -sfL https://raw.githubusercontent.com/terraform-linters/tflint/master/inst
 echo '::endgroup::'
 
 export TFLINT_PLUGIN_DIR="${TEMP_PATH}/.tflint.d/plugins"
-for RULESET in ${INPUT_TFLINT_RULESETS}; do
+for RULESET in ${INPUT_TFLINT_RULESETS//,/ /}; do
   PLUGIN="tf-ruleset-${RULESET}"
   REPOSITORY="https://github.com/terraform-linters/${PLUGIN}"
 
   echo "::group:: Installing tflint plugin for ${RULESET} ... ${REPOSITORY}"
   mkdir -p ${TFLINT_PLUGIN_DIR}
-  curl -L "$(curl -Ls ${REPOSITORY}/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" -o ${PLUGIN}.zip && unzip ${PLUGIN}.zip -d "${TFLINT_PLUGIN_DIR}" && rm ${PLUGIN}.zip
+  curl -L "$(curl -sfL ${REPOSITORY}/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" -o ${PLUGIN}.zip && unzip ${PLUGIN}.zip -d "${TFLINT_PLUGIN_DIR}" && rm ${PLUGIN}.zip
   echo '::endgroup::'
 done
 
