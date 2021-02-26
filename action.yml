@@ -37,8 +37,8 @@ inputs:
   tflint_rulesets:
     description: |
       Non-default tflint rulesets to install and use.
-      Default is empty. TODO
-    default: 'azurerm google  template'
+      Default is empty.
+    default: 'azurerm google'
   flags:
     description: |
       List of arguments to send to tflint
