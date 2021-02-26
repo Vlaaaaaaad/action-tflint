@@ -24,8 +24,9 @@ for RULESET in ${INPUT_TFLINT_RULESETS}; do
   echo '::endgroup::'
 done
 
-tflint -v
-ls -la "$TFLINT_PLUGIN_DIR"
+echo "::group:: Print tflint version details"
+tflint --version
+echo '::endgroup::'
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
