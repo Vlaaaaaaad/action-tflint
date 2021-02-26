@@ -15,7 +15,7 @@ echo '::endgroup::'
 
 export TFLINT_PLUGIN_DIR="${TEMP_PATH}/.tflint.d/plugins"
 for RULESET in ${INPUT_TFLINT_RULESETS//,/ /}; do
-  PLUGIN="tf-ruleset-${RULESET}"
+  PLUGIN="tflint-ruleset-${RULESET}"
   REPOSITORY="https://github.com/terraform-linters/${PLUGIN}"
 
   echo "::group:: Installing tflint plugin for ${RULESET} ... ${REPOSITORY}"
