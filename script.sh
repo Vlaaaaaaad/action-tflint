@@ -20,7 +20,7 @@ for RULESET in ${INPUT_TFLINT_RULESETS//,/ /}; do
 
   echo "::group:: Installing tflint plugin for ${RULESET} ... ${REPOSITORY}"
   mkdir -p ${TFLINT_PLUGIN_DIR}
-  curl -sfL "$(curl -sfL ${REPOSITORY}/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" -o ${PLUGIN}.zip && unzip ${PLUGIN}.zip -d "${TFLINT_PLUGIN_DIR}" && rm ${PLUGIN}.zip
+  curl -sfL ${REPOSITORY}/releases/latest/download/${PLUGIN}_linux_amd64.zip -o ${PLUGIN}.zip && unzip ${PLUGIN}.zip -d "${TFLINT_PLUGIN_DIR}" && rm ${PLUGIN}.zip
   echo '::endgroup::'
 done
 
@@ -40,3 +40,5 @@ echo ::set-output name=reviewdog-return-code::"${reviewdog_return}"
 echo '::endgroup::'
 
 exit $exit_code
+
+${REPOSITORY}/releases/latest/download/${PLUGIN}_linux_amd64.zip
