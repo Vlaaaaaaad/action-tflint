@@ -20,7 +20,7 @@ for RULESET in ${INPUT_TFLINT_RULESETS}; do
 
   echo "::group:: Installing tflint plugin for ${RULESET} ... ${REPOSITORY}"
   mkdir -p "${TFLINT_PLUGIN_DIR}"
-  curl -sfL "${REPOSITORY}"/releases/latest/download/"${PLUGIN}"_$(uname | sed 's/Darwin/darwin/; s/Linux/linux/')_$(uname -m | sed 's/x86_/amd/; s/aarch64/arm/').zip -o "${PLUGIN}".zip && unzip "${PLUGIN}".zip -d "${TFLINT_PLUGIN_DIR}" && rm "${PLUGIN}".zip
+  curl -sfL "${REPOSITORY}"/releases/latest/download/"${PLUGIN}"_"$(uname | sed 's/Darwin/darwin/; s/Linux/linux/')"_"$(uname -m | sed 's/x86_/amd/; s/aarch64/arm/')".zip -o "${PLUGIN}".zip && unzip "${PLUGIN}".zip -d "${TFLINT_PLUGIN_DIR}" && rm "${PLUGIN}".zip
   echo '::endgroup::'
 done
 
