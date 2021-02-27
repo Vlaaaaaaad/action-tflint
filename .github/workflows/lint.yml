@@ -1,4 +1,4 @@
-name: reviewdog
+name: Lint
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   shellcheck:
-    name: runner / shellcheck
+    name: Shellcheck
     runs-on: ubuntu-latest
 
     steps:
@@ -28,7 +28,7 @@ jobs:
           level: warning
 
   hadolint:
-    name: runner / hadolint
+    name: Hadolint
     runs-on: ubuntu-latest
 
     steps:
@@ -48,7 +48,7 @@ jobs:
           level: warning
 
   misspell:
-    name: runner / misspell
+    name: Misspell
     runs-on: ubuntu-latest
 
     steps:
