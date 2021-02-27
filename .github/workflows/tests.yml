@@ -1,3 +1,5 @@
+name: Tests
+
 on:
   push:
     branches:
@@ -6,7 +8,7 @@ on:
 
 jobs:
   test-check:
-    name: 'Test: runner / tflint (github-check)'
+    name: runner / tflint (github-check)
     runs-on: ubuntu-latest
 
     steps:
@@ -44,7 +46,7 @@ jobs:
 
   test-pr-check:
     if: github.event_name == 'pull_request'
-    name: 'Test: runner / tflint (github-pr-check)'
+    name: runner / tflint (github-pr-check)
     runs-on: ubuntu-latest
 
     steps:
@@ -82,7 +84,7 @@ jobs:
 
   test-pr-review:
     if: github.event_name == 'pull_request'
-    name: 'Test: runner / tflint (github-pr-review)'
+    name: runner / tflint (github-pr-review)
     runs-on: ubuntu-latest
 
     steps:
@@ -121,7 +123,7 @@ jobs:
           fi
 
   test-rulesets:
-    name: 'Test: tflint rulesets'
+    name: tflint rulesets
     runs-on: ubuntu-latest
 
     steps:
@@ -160,7 +162,7 @@ jobs:
 
   test-modules:
     if: github.event_name == 'pull_request'
-    name: 'Test: tflint modules'
+    name: tflint modules
     runs-on: ubuntu-latest
 
     steps:
